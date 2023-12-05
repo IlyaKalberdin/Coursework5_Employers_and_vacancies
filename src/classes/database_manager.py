@@ -116,7 +116,7 @@ class DBManager:
         finally:
             conn.close()
 
-        return avg_salary[0][0]
+        return int(avg_salary[0][0])
 
     def get_vacancies_with_higher_salary(self):
         """Метод получает список всех вакансий,
