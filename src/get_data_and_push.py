@@ -2,12 +2,10 @@ from classes.headhunter_api import HeadHunterApi
 from classes.database_manager import DBManager
 
 
-def get_data_and_push():
+def get_data_and_push(user_request):
     """Функция для получения работодателей и вакансий с hh.ru
     и их отправки в базу данных"""
     hh = HeadHunterApi()
-
-    user_request = input("Введите ключевое слово для поиска компаний: ")
 
     employers = hh.get_employers(user_request)
 
@@ -40,7 +38,3 @@ def get_data_and_push():
 
     for vacancy in vacancies:
         dbm.push_vacancy(vacancy)
-
-
-if __name__ == "__main__":
-    get_data_and_push()
